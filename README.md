@@ -1,6 +1,6 @@
 # _Viktor Grom_
 
-#### _App using JavaScript, React_
+#### _App using JavaScript, React/Redux_
 
 ## Technologies Used
 
