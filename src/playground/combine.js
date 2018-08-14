@@ -60,14 +60,20 @@ const setEndDate = (date) => ({
 
 /// Get Visible Expenses
 
-const getVisibleExpenses = (expenses, { text, startDate, endDate }) => {
+const getVisibleExpenses = (expenses, { text, startDate, endDate, sortBy }) => {
     return expenses.filter((expense) => {
         const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate;
         const endDateMatch = typeof endtDate !== 'number' || expense.createdAt <= endDate;
         const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
 
         return startDateMatch && endDateMatch && textMatch;
-    });
+    }).sort((a,b) => {
+        if (sortBy === 'date') {
+            return a.createdAt < b.createdAt ? -1 : 1;
+        } else if (sortBy === 'amount') {
+            return a.amount <= b.amount ? 1 : -1;
+        }
+        });
 }
 
 const expenseReduser = (state = [], action) => {
@@ -95,7 +101,7 @@ const expenseReduser = (state = [], action) => {
 
 let filterReducerDefaultState = {
     text: 'RENT',
-    sortBy: 'date',
+    sortBy: 'amount',
     startDate: undefined,
     endDate: undefined
 }
@@ -146,14 +152,14 @@ store.subscribe(() => {
     
 
 
-let expense1 = store.dispatch(addExpense({ description: 'RENT for March', amount: 100, createdAt: new Date().getTime(), id: uuid() }));
-let expense2 = store.dispatch(addExpense({ description: 'coffee', amount: 100, createdAt: new Date().getTime(), id: uuid() }));
+let expense1 = store.dispatch(addExpense({ description: 'RENT for March', amount: 100, createdAt: 160, id: uuid() }));
+let expense2 = store.dispatch(addExpense({ description: 'rent', amount: 100, createdAt: 150, id: uuid() }));
 
 //store.dispatch(removeExpense({ id: expense1.expense.id }));
 //store.dispatch(editExpense(expense2.expense.id, { amount: 777}));
 store.dispatch(changeFilterRtextValue('RENT'));
 //store.dispatch(setStartDate(new Date().getTime() - 50));
-store.dispatch(setEndDate(new Date().getTime()));
+store.dispatch(setEndDate(250));
 //store.dispatch(sortByAmount());
 //store.dispatch(sortByDate());
 
