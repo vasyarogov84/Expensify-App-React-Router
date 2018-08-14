@@ -1,8 +1,8 @@
 /// filter reduser
 
 let filterReducerDefaultState = {
-    text: 'bill',
-    sortBy: 'amount',
+    text: '',
+    sortBy: 'date',
     startDate: undefined,
     endDate: undefined
 }

@@ -4,11 +4,10 @@ import uuid from 'uuid';
 export let addExpense = ({ amount = 0, createdAt = 0, description = '', id = 0, note = '' } = {}) => ({
     type: 'ADD_EXPENSE',
     expense: {
-        id: uuid(),
         amount,
         createdAt,
         description,
-        id,
+        id:  uuid(),
         note
     }
 });
