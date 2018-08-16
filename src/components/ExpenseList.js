@@ -5,11 +5,11 @@ import selectedExpenses from '../selectors/expenses';
 import ExpenseListItem from './ExpenseListItem';
 
 const ExpenseList = (props) => (
-    <div>
-        <h1>Expense List</h1>
+   <div>
+        {props.length > 0 && <h1>Expense List</h1>} 
         <ul>
             {props.expenses.map((expense) => {
-                return <li key={uuid()}><ExpenseListItem key={expense.description} {...expense} /></li>
+               return <li key={uuid()}><ExpenseListItem key={expense.description} {...expense} /></li>
             })}
 
         </ul>
@@ -18,7 +18,8 @@ const ExpenseList = (props) => (
 
 const mapStateToProps = (state) => {
     return {
-        expenses: selectedExpenses(state.expense, state.filter)
+        expenses: selectedExpenses(state.expense, state.filter),
+        length: state.expense.length
     }
 }
 
