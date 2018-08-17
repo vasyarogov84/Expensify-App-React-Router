@@ -32,3 +32,6 @@ export let setTextFilter = (text = '') => ({
     type: 'EDIT_TEXT',
     text
 });
+
+
+

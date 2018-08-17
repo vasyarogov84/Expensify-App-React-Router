@@ -1,7 +1,7 @@
 import uuid from 'uuid';
 
 /// Add Expense
-export let addExpense = ({ amount = 0, createdAt = 0, description = '', id = 0, note = '' } = {}) => ({
+export let addExpense = ({ amount = 0, createdAt = 0, description = '', note = '' } = {}) => ({
     type: 'ADD_EXPENSE',
     expense: {
         amount,
