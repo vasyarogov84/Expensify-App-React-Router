@@ -1,37 +1,27 @@
-/// Sort By Amount
-
-export const sortByAmount = () => ({
-    type: 'SORT_BY_AMOUNT',
-    sortBy: 'amount'
+// SET_TEXT_FILTER
+export const setTextFilter = (text = '') => ({
+  type: 'SET_TEXT_FILTER',
+  text
 });
 
-/// Sort By Date
-
+// SORT_BY_DATE
 export const sortByDate = () => ({
-    type: 'SORT_BY_DATE',
-    sortBy: 'date'
+  type: 'SORT_BY_DATE'
 });
 
-/// Set Start Date
-
-export const setStartDate = (date) => ({
-    type: 'SET_START_DATE',
-    date
+// SORT_BY_AMOUNT
+export const sortByAmount = () => ({
+  type: 'SORT_BY_AMOUNT'
 });
 
-/// Set end Date
-
-export const setEndDate = (date) => ({
-    type: 'SET_END_DATE',
-    date
+// SET_START_DATE
+export const setStartDate = (startDate) => ({
+  type: 'SET_START_DATE',
+  startDate
 });
 
-/// Change Filter Reduser Text Value
-
-export let setTextFilter = (text = '') => ({
-    type: 'EDIT_TEXT',
-    text
+// SET_END_DATE
+export const setEndDate = (endDate) => ({
+  type: 'SET_END_DATE',
+  endDate
 });
-
-
-

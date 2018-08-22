@@ -3,31 +3,27 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
-import { addExpense, removeExpense, editExpense } from './actions/expenses';
-import { sortByAmount, sortByDate, setStartDate, setEndDate, setTextFilter } from './actions/filters';
+import { addExpense } from './actions/expenses';
+import { setTextFilter } from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
+import 'react-dates/lib/css/_datepicker.css';
 
 const store = configureStore();
 
-store.subscribe(() => {
-    let state = store.getState();
-    let visibleExpenses = getVisibleExpenses(state.expense, state.filter);
-    console.log('visibleExpenses', visibleExpenses);
-});
+store.dispatch(addExpense({ description: 'Water bill', amount: 4500 }));
+store.dispatch(addExpense({ description: 'Gas bill', createdAt: 1000 }));
+store.dispatch(addExpense({ description: 'Rent', amount: 109500 }));
 
-store.dispatch(addExpense({ amount: 777, createdAt: 0, description: 'Water Bill'}));
-store.dispatch(addExpense({ amount: 2000, createdAt: new Date().getTime(), description: 'Gas Bill'}));
-store.dispatch(addExpense({ amount: 2500, createdAt: new Date().getTime(), description: 'Electricity Bill'}));
-
+const state = store.getState();
+const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
+console.log(visibleExpenses);
 
 const jsx = (
-    <Provider store={store}>
-        <AppRouter />
-    </Provider>
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
 );
-store.subscribe(() => {
-  console.log(store.getState())
-});
+
 ReactDOM.render(jsx, document.getElementById('app'));
