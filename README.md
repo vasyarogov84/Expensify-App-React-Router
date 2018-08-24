@@ -1,7 +1,3 @@
-# _Under Development_
-
-# _Viktor Grom_
-
 #### _App using JavaScript, React/Redux_
 
 ## Technologies Used
