@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should add up multiple expenses 1`] = `
+<p>
+  You viewing 
+  3
+   
+  expenses
+   for are total of 
+  1141.95
+  $
+</p>
+`;
+
+exports[`should add up single expense 1`] = `
+<p>
+  You viewing 
+   
+  expenses
+   for are total of 
+  0
+  $
+</p>
+`;
+
+exports[`should show 0 expenses if no expenses 1`] = `
+<p>
+  You viewing 
+  0
+   
+  expenses
+   for are total of 
+  0
+  $
+</p>
+`;
