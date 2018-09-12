@@ -7,6 +7,7 @@ _React_
 _Redux_
 _Sass_
 _HTML_
+_Jest_
 
 ## Setup/Installation Requirements
 
